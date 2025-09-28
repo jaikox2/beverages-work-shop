@@ -1,0 +1,30 @@
+<h1>Beverages</h1>
+<%= link_to "New Beverage", new_beverage_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  <% @beverages.each do |bev| %>
+    <tr>
+      <td><%= bev.name %></td>
+      <td><%= bev.type %></td>
+      <td><%= bev.price %></td>
+      <td><%= bev.description %></td>
+      <td>
+        <%= link_to "Show", beverage_path(bev) %> |
+        <%= link_to "Edit", edit_beverage_path(bev) %> |
+        <%= link_to "Delete", 
+            beverage_path(bev), 
+            data: { 
+              turbo_method: :delete, 
+              turbo_confirm: "Are you sure?" 
+            } 
+        %>
+      </td>
+    </tr>
+  <% end %>
+</table>

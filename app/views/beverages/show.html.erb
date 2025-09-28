@@ -1,0 +1,33 @@
+<h1>Beverage Detail</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @beverage.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @beverage.price %> THB
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @beverage.type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @beverage.description %>
+</p>
+
+<hr>
+
+<%= link_to "Edit", edit_beverage_path(@beverage) %> |
+<%= link_to "Back to List", beverages_path %> |
+<%= link_to "Delete", 
+            beverage_path(bev), 
+            data: { 
+              turbo_method: :delete, 
+              turbo_confirm: "Are you sure?" 
+            } 
+        %>

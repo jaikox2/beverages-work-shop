@@ -1,0 +1,22 @@
+<h1>New Beverage</h1>
+
+<%= form_with(model: @beverage,
+              scope: :beverage,
+              url: beverages_path,
+              local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+  <div>
+    <%= form.label :type %>
+    <%= form.select :type, ["Coffee", "Juice"] %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
